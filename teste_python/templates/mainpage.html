@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Poppins&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favii.svg') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Protótipo Churn</title>
+</head>
+
+<body>
+  <header>
+    <h1>Protótipo Churn</h1>
+    <a href="/"><img src="{{ url_for('static', filename='img/person_24dp_1E1E1E_FILL0_wght400_GRAD0_opsz24.svg') }}" alt=""></a>
+  </header>
+
+  <section class="containerfornecimento">
+    <h2>Forneça os dados (Arquivo CSV)</h2>
+    <form action="/upload_csv" method="POST" enctype="multipart/form-data">
+      <label for="csv">Selecionar arquivo CSV:</label>
+      <input type="file" name="csv" id="csv" required>
+      <button type="submit">Carregar arquivo</button>
+    </form>
+    {% if erro %}
+      <p style="color: red;">{{ erro }}</p>
+    {% endif %}
+  </section>
+
+  {% if colunas %}
+  <section class="containerdados">
+    <h2>Selecione as colunas para análise</h2>
+    <form action="/analisar" method="POST">
+      {% for col in colunas %}
+        <label><input type="checkbox" name="colunas" value="{{ col }}"> {{ col }}</label><br>
+      {% endfor %}
+      <button type="submit">Executar análise</button>
+    </form>
+  </section>
+  {% endif %}
+
+  <h2 class="resultados">Resultados:</h2>
+  <section class="resultadoscontainer">
+    {% if resultado %}
+      <p><strong>Acurácia:</strong> {{ resultado.acuracia }}</p>
+      <pre>{{ resultado.relatorio }}</pre>
+      <img src="{{ url_for('static', filename='img/matriz_confusao.png') }}" alt="Matriz de Confusão" style="max-width: 100%;">
+      <img src="{{ url_for('static', filename='img/arvore.png') }}" alt="Árvore de Decisão" style="max-width: 100%;">
+    {% else %}
+      <p>Aguardando envio de dados para análise...</p>
+    {% endif %}
+  </section>
+
+  <footer>
+    <h2>Membros do Grupo</h2>
+    <ul>
+      <li>Nome 1 - RA: 1</li>
+      <li>Nome 2 - RA: 2</li>
+      <li>Nome 3 - RA: 3</li>
+      <li>Nome 4 - RA: 4</li>
+      <li>Nome 5 - RA: 5</li>
+      <li>Nome 6 - RA: 6</li>
+      <li>Nome 7 - RA: 7</li>
+      <li>Nome 8 - RA: 8</li>
+      <li>Nome 9 - RA: 9</li>
+    </ul>
+  </footer>
+</body>
+
+</html>

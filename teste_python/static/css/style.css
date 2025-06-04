@@ -1,0 +1,149 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+header {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid #6b46c1;
+}
+
+header a {
+  padding: 4px;
+  background-color: #812bef;
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+header a:hover {
+  transform: scale(1.2);
+}
+
+.containerfornecimento {
+  text-align: center;
+  padding: 24px 48px;
+}
+
+.containerfornecimento button {
+  padding: 12px 24px;
+  width: 50%;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #6b46c1, #764ba2);  
+  transition: transform 0.2s ease;
+}
+
+.containerfornecimento button:hover {
+  transform: scale(1.05);  
+  background: linear-gradient(to bottom, #764ba2, #812bef);
+  background-size: 400% 400%;
+  animation: moverGradiente 8s ease infinite;
+  cursor: pointer;
+}
+
+.containerdados {
+  text-align: center;
+}
+
+.label {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+select {
+  border-radius: 4px;
+  width: 44%;
+  height: 32px;
+}
+
+.resultados {
+  padding-left: 16px;
+  margin-top: 32px;
+  padding-top: 4px;
+  border-top: 4px solid #6b46c1;
+}
+
+.resultadoscontainer input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 200px;
+  background-color: #f1f1f1;
+  border: none;
+  font-size: 1.125rem;
+  padding: 0 24px;
+}
+
+footer {
+  margin-top: 32px;
+  padding: 8px 16px;
+}
+
+ul li {
+  list-style: none;
+  margin-bottom: 8px;
+}
+
+@media(max-width:800px) {
+  .containerfornecimento {
+    padding: initial;
+  }
+  .containerfornecimento button {
+    width: 75%;
+  }
+  select {
+    width: 75%;
+  }
+}
+
+@media(max-width:500px) {
+  header {
+    font-size: 0.825rem;
+    padding: 4px 8px;
+  }
+  .containerfornecimento button, select{
+    width: 100%;
+  }
+  h2 {
+    font-size: 1.125rem;
+  }
+  .containerdados label {
+    font-size: 1.125rem;
+  }
+  .resultadoscontainer input {
+    height: 500px;
+    font-size: 0.825rem;
+  }
+}
+
+@media(max-width:320px) {
+  header h1 {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 0.825rem;
+  }
+  .containerdados label {
+    font-size: 0.825rem;
+  }
+  .resultados {
+    margin-top: 16px;
+  }
+  footer {
+    margin-top: 16px;
+  }
+}
